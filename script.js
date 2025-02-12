@@ -1,175 +1,157 @@
 // 1. Store Questions
 const questions = [
     { 
-        question: 'What will be the output of the following code?', 
-        code: 'console.log(typeof null);', 
-        options: ['null', 'object', 'undefined', 'boolean'], 
-        answer: 'object' 
+        question: 'Which CSS property is used to change text color?', 
+        options: ['font-color', 'text-color', 'color', 'foreground'], 
+        answer: 'color' 
     },
     { 
-        question: 'What does NaN stand for in JavaScript?', 
-        options: ['Not a Number', 'Null and None', 'Negative and Null', 'Non-Assigned Name'], 
-        answer: 'Not a Number' 
+        question: 'What is the default position value in CSS?', 
+        options: ['relative', 'absolute', 'fixed', 'static'], 
+        answer: 'static' 
     },
     { 
-        question: 'What is the output of the following code?', 
-        code: 'console.log(5 == "5");', 
-        options: ['true', 'false', 'TypeError', 'NaN'], 
-        answer: 'true' 
+        question: 'Which unit is relative to the font-size of the element?', 
+        options: ['px', 'em', 'vh', 'rem'], 
+        answer: 'em' 
     },
     { 
-        question: 'What is the output of the following?', 
-        code: 'console.log(Boolean([]));', 
-        options: ['true', 'false', 'undefined', 'Error'], 
-        answer: 'true' 
+        question: 'What will be the output of the following CSS?', 
+        code: 'p {\n' +
+              '    font-size: 20px;\n' +
+              '}\n' +
+              'body {\n' +
+              '    font-size: 10px;\n' +
+              '}\n' +
+              'p {\n' +
+              '    font-size: 2em;\n' +
+              '}',
+        options: ['20px', '10px', '40px', '2em'], 
+        answer: '40px' 
     },
     { 
-        question: 'Which keyword is used to declare a constant variable in JavaScript?', 
-        options: ['var', 'let', 'const', 'define'], 
-        answer: 'const' 
-    },
-
-    { 
-        question: 'What is the output of the following code?', 
-        code: 'let x; console.log(x);', 
-        options: ['null', 'undefined', 'Error', '0'], 
-        answer: 'undefined' 
-    },
-    { 
-        question: 'Which of the following is NOT a primitive data type in JavaScript?', 
-        options: ['Boolean', 'String', 'Object', 'Number'], 
-        answer: 'Object' 
-    },
-    { 
-        question: 'What will be the output?', 
-        code: 'console.log(typeof NaN);', 
-        options: ['number', 'NaN', 'undefined', 'object'], 
-        answer: 'number' 
-    },
-    { 
-        question: 'What is the output of the following code?', 
-        code: 'console.log(typeof([]));', 
-        options: ['array', 'object', 'undefined', 'null'], 
-        answer: 'object' 
-    },
-    { 
-        question: 'What will be the output of the following code?', 
-        code: 'let a = "5" + 5; console.log(a);', 
-        options: ['10', "'55'", '5', 'Error'], 
-        answer: "'55'" 
+        question: 'Which CSS property controls the space inside an element’s border?', 
+        options: ['margin', 'padding', 'spacing', 'border-spacing'], 
+        answer: 'padding' 
     },
 
     { 
-        question: 'What is the output of the following function call?', 
-        code: 
-        'function sayHello() {\n' +
-        '    return "Hello";\n' +
-        '}\n' +
-        'console.log(sayHello);', 
-        options: ['Hello', 'undefined', '[Function: sayHello]', 'TypeError'], 
-        answer: '[Function: sayHello]' 
+        question: 'Which CSS property is used to make text bold?', 
+        options: ['font-weight', 'text-bold', 'bold', 'font-style'], 
+        answer: 'font-weight' 
     },
     { 
-        question: 'What will be the output?', 
-        code: 
-        'function sum(a, b) {\n' +
-        '    console.log(a + b);\n' +
-        '}\n' +
-        'sum(2);', 
-        options: ['2', 'NaN', 'undefined', 'Error'], 
-        answer: 'NaN' 
+        question: 'Which CSS property is used to center an element horizontally?', 
+        options: ['text-align', 'margin', 'align', 'center'], 
+        answer: 'margin' 
     },
     { 
-        question: 'Which keyword is used to define a function?', 
-        options: ['func', 'def', 'function', 'method'], 
-        answer: 'function' 
+        question: 'What will the following CSS do?', 
+        code: 'div {\n' +
+              '    display: flex;\n' +
+              '    justify-content: center;\n' +
+              '    align-items: center;\n' +
+              '}',
+        options: ['Aligns content to the left', 'Centers content both vertically and horizontally', 'Justifies content to the right', 'Does nothing'], 
+        answer: 'Centers content both vertically and horizontally' 
     },
     { 
-        question: 'What is the output of this immediately invoked function expression (IIFE)?', 
-        code: '(function() { return "Hello"; })();', 
-        options: ['Hello', 'undefined', 'TypeError', 'null'], 
-        answer: 'Hello' 
+        question: 'Which selector targets all `<p>` elements inside a `<div>`?', 
+        options: ['div > p', 'div p', 'div, p', '.div p'], 
+        answer: 'div p' 
     },
     { 
-        question: 'What will this return?', 
-        code: 
-        'function multiply(a, b = 2) {\n' +
-        '    return a * b;\n' +
-        '}\n' +
-        'console.log(multiply(5));', 
-        options: ['10', '5', 'undefined', 'NaN'], 
-        answer: '10' 
+        question: 'Which CSS property makes an element invisible without removing it from the document flow?', 
+        options: ['display: none;', 'visibility: hidden;', 'opacity: 0;', 'hidden: true;'], 
+        answer: 'visibility: hidden;' 
     },
 
     { 
-        question: 'What will be the output of the following loop?', 
-        code: 
-        'for (let i = 0; i < 3; i++) {\n' +
-        '    console.log(i);\n' +
-        '}', 
-        options: ['0 1 2', '1 2 3', '0 1 2 3', 'Error'], 
-        answer: '0 1 2' 
+        question: 'What does `z-index` control in CSS?', 
+        options: ['Font size', 'Stacking order', 'Text alignment', 'Box model'], 
+        answer: 'Stacking order' 
     },
     { 
-        question: 'What will be the output?', 
-        code: 
-        'let i = 0;\n' +
-        'while (i < 3) {\n' +
-        '    console.log(i);\n' +
-        '    i++;\n' +
-        '}', 
-        options: ['0 1 2', '1 2 3', '0 1 2 3', 'Error'], 
-        answer: '0 1 2' 
+        question: 'Which value makes an element fill the entire width of its container?', 
+        options: ['100%', 'auto', 'inherit', 'fill'], 
+        answer: '100%' 
     },
     { 
-        question: 'What will be printed?', 
-        code: 
-        'let i = 0;\n' +
-        'do {\n' +
-        '    console.log(i);\n' +
-        '    i++;\n' +
-        '} while (i < 3);', 
-        options: ['0 1 2', '1 2 3', '0 1 2 3', 'Error'], 
-        answer: '0 1 2' 
+        question: 'What is the output of the following CSS?', 
+        code: 'div {\n' +
+              '    width: 200px;\n' +
+              '    height: 100px;\n' +
+              '    overflow: hidden;\n' +
+              '}',
+        options: ['Hides overflowing content', 'Expands to fit content', 'Shows scrollbars', 'Nothing happens'], 
+        answer: 'Hides overflowing content' 
+    },
+    { 
+        question: 'Which CSS property is used to apply an image as a background?', 
+        options: ['background-image', 'background', 'image', 'img-src'], 
+        answer: 'background-image' 
+    },
+    { 
+        question: 'Which CSS property creates a smooth transition effect?', 
+        options: ['animation', 'transition', 'transform', 'timing-function'], 
+        answer: 'transition' 
     },
 
     { 
-        question: 'What will be the output?', 
-        code: 
-        'let obj = { name: "John", age: 30 };\n' +
-        'console.log(obj.name);', 
-        options: ['John', '30', 'undefined', 'Error'], 
-        answer: 'John' 
+        question: 'Which CSS value makes an element fully transparent?', 
+        options: ['opacity: 1;', 'opacity: 0;', 'visibility: hidden;', 'display: none;'], 
+        answer: 'opacity: 0;' 
     },
     { 
-        question: 'What will be the output?', 
-        code: 
-        'let arr = [10, 20, 30];\n' +
-        'console.log(arr.length);', 
-        options: ['2', '3', '4', 'Error'], 
-        answer: '3' 
+        question: 'Which of the following will create a fixed navigation bar?', 
+        code: 'nav {\n' +
+              '    position: fixed;\n' +
+              '    top: 0;\n' +
+              '    width: 100%;\n' +
+              '}',
+        options: ['Fixes the nav at the top', 'Centers the nav', 'Creates a floating sidebar', 'Hides the nav'], 
+        answer: 'Fixes the nav at the top' 
     },
     { 
-        question: 'What will be printed?', 
-        code: 
-        'let obj = { name: "Jane" };\n' +
-        'console.log(obj["name"]);', 
-        options: ['Jane', 'undefined', 'Error', 'null'], 
-        answer: 'Jane' 
+        question: 'Which selector targets all `<a>` elements that are hovered over?', 
+        options: ['a:hover', 'a:active', 'a:focus', 'a:link'], 
+        answer: 'a:hover' 
     },
     { 
-        question: 'Which method removes the last element from an array?', 
-        options: ['pop()', 'shift()', 'remove()', 'splice()'], 
-        answer: 'pop()' 
+        question: 'Which property is used to round the corners of a box?', 
+        options: ['corner-radius', 'border-radius', 'box-rounding', 'radius'], 
+        answer: 'border-radius' 
     },
     { 
-        question: 'What will this return?', 
-        code: 
-        'let arr = [1, 2, 3];\n' +
-        'arr.push(4);\n' +
-        'console.log(arr);', 
-        options: ['[1,2,3,4]', '[1,2,3]', '[4,1,2,3]', 'Error'], 
-        answer: '[1,2,3,4]' 
+        question: 'Which display value is used to create a flexbox container?', 
+        options: ['inline', 'block', 'grid', 'flex'], 
+        answer: 'flex' 
+    },
+
+    { 
+        question: 'Which CSS property is used to set the gap between flex items?', 
+        options: ['space-between', 'flex-gap', 'gap', 'margin'], 
+        answer: 'gap' 
+    },
+    { 
+        question: 'What does `position: absolute;` do?', 
+        options: ['Positions element relative to the viewport', 'Positions element relative to the nearest positioned ancestor', 'Centers the element', 'Hides the element'], 
+        answer: 'Positions element relative to the nearest positioned ancestor' 
+    },
+    { 
+        question: 'Which property makes text appear in all uppercase letters?', 
+        options: ['text-transform', 'uppercase', 'font-case', 'letter-case'], 
+        answer: 'text-transform' 
+    },
+    { 
+        question: 'What does `display: grid;` do?', 
+        options: ['Creates a grid layout', 'Centers content', 'Hides elements', 'Nothing'], 
+        answer: 'Creates a grid layout' 
+    },
+    { 
+        question: 'Which CSS function is used to rotate an element?', 
+        options: ['rotate()', 'transform()', 'translate()', 'skew()'], 
+        answer: 'rotate()' 
     }
 ];
 
