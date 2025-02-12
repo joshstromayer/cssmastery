@@ -207,7 +207,9 @@ function displayQuestion() {
     let questionHTML = "";
     
     if (previouslyIncorrect.has(currentQuestion.question)) {
-        questionHTML += `<span style="color: red;">(Previously Incorrect) </span>`;
+        document.getElementById("quiz-container").style.backgroundColor = "rgba(255, 0, 0, 0.1)"; // Light red tint
+    } else {
+        document.getElementById("quiz-container").style.backgroundColor = ""; // Reset to default
     }
     
     questionHTML += `${currentQuestion.question}<br><br>`;
