@@ -68,12 +68,12 @@ const questions = [
 
     { 
         question: 'What does `z-index` control in CSS?', 
-        options: ['Font size', 'Stacking order', 'Text alignment', 'Box model'], 
+        options: ['Stack height', 'Stacking order', 'Z element alignment', 'Box model'], 
         answer: 'Stacking order' 
     },
     { 
         question: 'Which value makes an element fill the entire width of its container?', 
-        options: ['100%', 'auto', 'inherit', 'fill'], 
+        options: ['100%', 'full', 'inherit', 'fill'], 
         answer: '100%' 
     },
     { 
