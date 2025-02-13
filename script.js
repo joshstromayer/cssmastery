@@ -56,7 +56,7 @@ const questions = [
         answer: 'Centers content both vertically and horizontally' 
     },
     { 
-        question: 'Which selector targets all `<p>` elements inside a `<div>`?', 
+        question: 'Which selector targets all &lt;p&gt; elements inside a &lt;div&gt;?', 
         options: ['div > p', 'div p', 'div, p', '.div p'], 
         answer: 'div p' 
     },
@@ -113,7 +113,7 @@ const questions = [
         answer: 'Fixes the nav at the top' 
     },
     { 
-        question: 'Which selector targets all `<a>` elements that are hovered over?', 
+        question: 'Which selector targets all &lt;a&gt; elements that are hovered over?', 
         options: ['a:hover', 'a:active', 'a:focus', 'a:link'], 
         answer: 'a:hover' 
     },
@@ -152,6 +152,28 @@ const questions = [
         question: 'Which CSS function is used to rotate an element?', 
         options: ['rotate()', 'transform()', 'translate()', 'skew()'], 
         answer: 'rotate()' 
+    },
+
+    // Additional questions
+    { 
+        question: 'Which pseudo-class targets the first child of an element?', 
+        options: [':first-of-type', ':nth-child(1)', ':first-child', ':only-child'], 
+        answer: ':first-child' 
+    },
+    { 
+        question: 'Which CSS property is used to control the spacing between letters?', 
+        options: ['letter-spacing', 'word-spacing', 'line-height', 'spacing'], 
+        answer: 'letter-spacing' 
+    },
+    { 
+        question: 'Which CSS property is used to make an element responsive?', 
+        options: ['max-width', 'min-width', 'responsive', 'width'], 
+        answer: 'max-width' 
+    },
+    { 
+        question: 'Which CSS property is used to set an element’s visibility without removing its space?', 
+        options: ['display', 'opacity', 'visibility', 'z-index'], 
+        answer: 'visibility' 
     }
 ];
 
