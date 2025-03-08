@@ -1,16 +1,5 @@
-let cssBasicsQuestions = []; // Declare globally and use this throughout
-let totalQuestions = 0; // Declare globally before usage
+import cssBasicsQuestionsShuffled from './questions.js';
 
-fetch("questions.json")
-  .then(response => response.json())
-  .then(data => {
-    cssBasicsQuestions = [...data]; // ✅ Store normal quiz questions
-    shuffleQuestions = [...data]; // ✅ Store shuffle questions
-    console.log("✅ Questions Loaded Successfully!");
-    console.log("🔍 Normal Quiz Questions:", cssBasicsQuestions);
-    console.log("🎲 Shuffle Quiz Questions:", shuffleQuestions);
-  })
-  .catch(error => console.error("❌ ERROR: Failed to load questions!", error));
 const cssChapters = [
     {
         chapter: "CSS Basics",
@@ -83,6 +72,261 @@ const cssChapters = [
     }
 ];
 
+const cssBasicsQuestions = [
+    // ✅ CSS Introduction
+    {
+        topic: "css-introduction",
+        question: "What does CSS stand for?",
+        options: ["Cascading Style Sheets", "Creative Style System", "Computer Style Syntax", "Coded Style System"],
+        answer: "Cascading Style Sheets"
+    },
+    {
+        topic: "css-introduction",
+        question: "Which HTML tag is used to link an external CSS file?",
+        options: ["&lt;css&gt;", "&lt;style&gt;", "&lt;link&gt;", "&lt;stylesheet&gt;"],
+        answer: "&lt;link&gt;"
+    },
+    {
+        topic: "css-introduction",
+        question: "Which attribute is used in an HTML element to apply inline CSS styles?",
+        options: ["style", "css", "inline", "format"],
+        answer: "style"
+    },
+    {
+        topic: "css-introduction",
+        question: "Where is the best place to include an external CSS file?",
+        options: ["Inside the &lt;head&gt;", "Inside the &lt;body&gt;", "At the bottom of the document", "Inside a &lt;div&gt;"],
+        answer: "Inside the &lt;head&gt;"
+    },
+    {
+        topic: "css-introduction",
+        question: "Which of the following is NOT a way to apply CSS to an HTML document?",
+        options: ["External stylesheet", "Inline styles", "JavaScript styling", "Internal stylesheet"],
+        answer: "JavaScript styling"
+    },
+
+    // ✅ CSS Selectors
+    {
+        topic: "css-selectors",
+        question: "What is the correct syntax for selecting all &lt;p&gt; elements in CSS?",
+        options: ["p {}", "#p {}", ".p {}", "&lt;p&gt; {}"],
+        answer: "p {}"
+    },
+    {
+        topic: "css-selectors",
+        question: "Which CSS selector targets an element with a specific `id`?",
+        options: ["#id", ".id", "id {}", "&lt;id&gt;"],
+        answer: "#id"
+    },
+    {
+        topic: "css-selectors",
+        question: "What does the `*` selector do in CSS?",
+        options: ["Targets all elements", "Targets all &lt;p&gt; elements", "Targets only body elements", "Targets inline elements only"],
+        answer: "Targets all elements"
+    },
+    {
+        topic: "css-selectors",
+        question: "What is the correct way to select all &lt;p&gt; elements inside a &lt;div&gt;?",
+        options: ["div p", "div > p", "div, p", "#div p"],
+        answer: "div p"
+    },
+    {
+        topic: "css-selectors",
+        question: "Which selector targets **only direct children** of a &lt;div&gt;?",
+        options: ["div > p", "div p", "div + p", "div ~ p"],
+        answer: "div > p"
+    },
+
+    // ✅ CSS Colors & Backgrounds
+    {
+        topic: "css-colors-backgrounds",
+        question: "Which CSS property is used to change text color?",
+        options: ["font-color", "text-color", "color", "foreground"],
+        answer: "color"
+    },
+    {
+        topic: "css-colors-backgrounds",
+        question: "Which CSS property is used to set a background color?",
+        options: ["background", "bg-color", "background-color", "color"],
+        answer: "background-color"
+    },
+    {
+        topic: "css-colors-backgrounds",
+        question: "What is the hexadecimal code for black?",
+        options: ["#000", ".black", "black", ".000"],
+        answer: "#000"
+    },
+    {
+        topic: "css-colors-backgrounds",
+        question: "What does `rgba(255, 0, 0, 0.5)` represent?",
+        options: ["Solid red", "Transparent red", "Half-opacity blue", "Transparent black"],
+        answer: "Transparent red"
+    },
+    {
+        topic: "css-colors-backgrounds",
+        question: "Which CSS property is used to apply a background image?",
+        options: ["background", "background-image", "image-src", "bg-img"],
+        answer: "background-image"
+    },
+
+    // ✅ CSS Text Styling
+    {
+        topic: "css-text-styling",
+        question: "Which CSS property is used to change the font size?",
+        options: ["font-size", "text-size", "size", "font"],
+        answer: "font-size"
+    },
+    {
+        topic: "css-text-styling",
+        question: "Which CSS property is used to make text bold?",
+        options: ["font-weight", "text-bold", "bold", "font-style"],
+        answer: "font-weight"
+    },
+    {
+        topic: "css-text-styling",
+        question: "Which CSS property is used to change the font family?",
+        options: ["font-family", "text-font", "font", "family"],
+        answer: "font-family"
+    },
+    {
+        topic: "css-text-styling",
+        question: "Which unit is relative to the font size of the element?",
+        options: ["px", "em", "vh", "rem"],
+        answer: "em"
+    },
+    {
+        topic: "css-text-styling",
+        question: "Which CSS property is used to control letter spacing?",
+        options: ["letter-spacing", "word-spacing", "line-height", "spacing"],
+        answer: "letter-spacing"
+    },
+
+    // ✅ CSS Box Model
+    {
+        topic: "css-box-model",
+        question: "Which CSS property controls the space inside an element’s border?",
+        options: ["margin", "padding", "spacing", "border-spacing"],
+        answer: "padding"
+    },
+    {
+        topic: "css-box-model",
+        question: "Which CSS property controls the space **outside** an element’s border?",
+        options: ["margin", "padding", "spacing", "border"],
+        answer: "margin"
+    },
+    {
+        topic: "css-box-model",
+        question: "Which CSS property sets the width of an element’s border?",
+        options: ["border-width", "border-size", "border", "border-thickness"],
+        answer: "border-width"
+    },
+    {
+        topic: "css-box-model",
+        question: "What does `box-sizing: border-box;` do?",
+        options: ["Excludes padding from width calculations", "Includes padding & border in width", "Hides the border", "Increases element size"],
+        answer: "Includes padding & border in width"
+    },
+    {
+        topic: "css-box-model",
+        question: "Which CSS property controls the **visibility** of an element?",
+        options: ["display", "opacity", "visibility", "z-index"],
+        answer: "visibility"
+    },
+
+    // Margins, padding and borders 
+    {
+        topic: "css-spacing",
+        question: "Which property controls the space between an element’s content and its border?",
+        options: ["padding", "margin", "border", "spacing"],
+        answer: "padding"
+    },
+    {
+        topic: "css-spacing",
+        question: "What happens if you set 'margin: auto;' on a block element?",
+        options: [
+            "It sets the margin to zero",
+            "It horizontally centers the element within its container",
+            "It removes all margins",
+            "It has no effect"
+        ],
+        answer: "It horizontally centers the element within its container"
+    },
+    {
+        topic: "css-spacing",
+        question: "Which of the following is the correct order for the shorthand 'margin: 10px 20px 30px 40px;'?",
+        options: [
+            "Top, Right, Bottom, Left",
+            "Right, Top, Bottom, Left",
+            "Top, Bottom, Left, Right",
+            "Left, Top, Right, Bottom"
+        ],
+        answer: "Top, Right, Bottom, Left"
+    },
+    {
+        topic: "css-spacing",
+        question: "Which border style creates a dashed border?",
+        options: ["border-style: solid;", "border-style: dotted;", "border-style: dashed;", "border-style: double;"],
+        answer: "border-style: dashed;"
+    },
+    {
+        topic: "css-spacing",
+        question: "How can you apply different padding values for top, right, bottom, and left?",
+        options: [
+            "Using padding-top, padding-right, padding-bottom, padding-left separately",
+            "Using padding: 10px;",
+            "Using padding-all: 10px;",
+            "Padding must always be equal on all sides"
+        ],
+        answer: "Using padding-top, padding-right, padding-bottom, padding-left separately"
+    },
+
+    // Width, height and overlfow
+    {
+        topic: "css-sizing-overflow",
+        question: "Which CSS property controls the width of an element?",
+        options: ["height", "width", "max-width", "content-width"],
+        answer: "width"
+    },
+    {
+        topic: "css-sizing-overflow",
+        question: "What is the difference between 'max-width' and 'min-width'?",
+        options: [
+            "max-width sets the maximum width, min-width sets the minimum width",
+            "They both do the same thing",
+            "min-width takes priority over max-width",
+            "max-width is only used for images"
+        ],
+        answer: "max-width sets the maximum width, min-width sets the minimum width"
+    },
+    {
+        topic: "css-sizing-overflow",
+        question: "What happens if an element’s content is larger than its defined width and height?",
+        options: [
+            "The content will be cut off",
+            "It will always expand to fit the content",
+            "It depends on the 'overflow' property",
+            "It will automatically scroll"
+        ],
+        answer: "It depends on the 'overflow' property"
+    },
+    {
+        topic: "css-sizing-overflow",
+        question: "Which 'overflow' value allows content to scroll when it exceeds its container?",
+        options: ["hidden", "auto", "scroll", "visible"],
+        answer: "scroll"
+    },
+    {
+        topic: "css-sizing-overflow",
+        question: "What does 'height: 100vh;' do?",
+        options: [
+            "Sets the height to 100 pixels",
+            "Sets the height to 100% of the viewport height",
+            "Makes the element fullscreen",
+            "Has no effect on block elements"
+        ],
+        answer: "Sets the height to 100% of the viewport height"
+    }
+];
 
 // ✅ Select Elements
 const mainContainer = document.getElementById("gridContainer");
@@ -153,12 +397,10 @@ topicButtons.forEach(button => {
             ? [...cssBasicsQuestions]
             : cssBasicsQuestions.filter(q => q.topic === selectedTopic);
 
-            totalQuestions = shuffledQuestions.length; 
-totalAnsweredQuestions = 0;
-progressBar.value = 0;  
-previouslyIncorrect.clear();  
-correctAnswers = 0;  
-updateProgress();  
+        totalQuestions = shuffledQuestions.length;
+        correctAnswers = 0;
+        totalAnsweredQuestions = 0;
+        previouslyIncorrect.clear();
 
         shuffleArray(shuffledQuestions);
         currentQuestionIndex = 0;
@@ -199,10 +441,9 @@ backToMenuButton.addEventListener("click", () => {
     console.log("✅ Quiz fully reset, main menu restored.");
 });
 
+// ✅ Function to Update Progress
 // ✅ Function to Update Progress Bar
 function updateProgress() {
-    console.log(`🔍 DEBUG: totalQuestions = ${totalQuestions}, totalAnsweredQuestions = ${totalAnsweredQuestions}`);
-
     if (totalQuestions === 0) {
         progressBar.value = 0;
         return;
@@ -444,6 +685,9 @@ function endQuiz() {
     }
 }
 
+
+
+
 // ✅ Load Completed Topics from Local Storage
 function getCompletedTopics() {
     return JSON.parse(localStorage.getItem("completedTopics")) || [];
@@ -524,17 +768,15 @@ function updateNextSectionLink() {
         return;
     }
 
-    if (!nextTopic) {
-        console.log("✅ No more topics left to complete.");
+    if (nextTopic) {
+        nextSectionDiv.innerHTML = `<p>Next Section:</p>
+            <a href="#" class="next-topic-link" data-topic-id="${nextTopic.id}">${nextTopic.topic}</a>`;
+        
+        console.log(`🟢 Next section set to: ${nextTopic.topic}`);
+    } else {
         nextSectionDiv.innerHTML = "<p>All topics completed!</p>";
-        return;
+        console.log("✅ No more topics left to complete.");
     }
-
-    console.log(`🟢 Next section set to: ${nextTopic.topic}`);
-    nextSectionDiv.innerHTML = `
-        <p>Next Section:</p>
-        <a href="#" class="next-topic-link" data-topic-id="${nextTopic.id}">${nextTopic.topic}</a>
-    `;
 }
 
 // ✅ Run these functions on page load (Ensuring they wait for the DOM)
@@ -558,8 +800,6 @@ document.addEventListener("click", (event) => {
         }
 
         console.log(`🔥 Starting quiz for next section: ${topicId}`);
-
-        // ✅ Call startQuiz with correct topic ID
         startQuiz(topicId);
     }
 });
@@ -577,16 +817,16 @@ function startQuiz(topicId) {
 
     console.log(`🎯 STARTING quiz for topic: '${topicId}'`);
 
-    // ✅ Ensure we correctly set `currentTopicId`
+    // ✅ **Ensure we correctly set `currentTopicId`**
     currentTopicId = topicId;
 
-    // ✅ Reset the entire quiz state
-    shuffledQuestions = [];  // Clear old questions
+    // ✅ **Reset the entire quiz state**
+    shuffledQuestions = [];  // CLEAR OLD QUESTIONS
     currentQuestionIndex = 0;
     correctAnswers = 0;
     previouslyIncorrect.clear();
     
-    // ✅ Filter questions properly
+    // ✅ **Filter questions properly**
     shuffledQuestions = cssBasicsQuestions.filter(q => q.topic === topicId);
 
     if (shuffledQuestions.length === 0) {
@@ -596,23 +836,19 @@ function startQuiz(topicId) {
 
     console.log("📌 Filtered Questions:", shuffledQuestions);
 
-    // ✅ Shuffle the questions
+    // ✅ **Shuffle the questions**
     shuffleArray(shuffledQuestions);
     
-    // ✅ Reset tracking variables
-    totalQuestions = shuffledQuestions.length; 
-    totalAnsweredQuestions = 0;  // Ensure answered count resets
-    progressBar.value = 0;  // Reset progress bar immediately
-    updateProgress();  // Ensure progress updates instantly
-
+    // ✅ **Ensure indexes and tracking variables are reset**
+    totalQuestions = shuffledQuestions.length;
     console.log(`📌 totalQuestions set to: ${totalQuestions}`);
 
-    // ✅ Reset UI Elements
-    answerOptions.innerHTML = ""; // Remove old answer buttons
+    // ✅ **Reset UI Elements**
+    answerOptions.innerHTML = ""; // ✅ Remove old answer buttons
     nextButton.style.display = "none"; 
     returnToMenuButton.style.display = "none"; 
 
-    // ✅ Ensure quiz is displayed properly
+    // ✅ **Ensure quiz is displayed properly**
     document.getElementById("gridContainer").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
 
@@ -629,200 +865,3 @@ function startQuiz(topicId) {
     console.log("📌 Displaying First Question...");
     displayQuestion();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// shuffle stuff code 
-let shuffleQuestions = [];
-
-document.addEventListener("DOMContentLoaded", () => {
-    let shuffleButton = document.getElementById("shuffle-quiz-button");
-    let shuffleCurrentIndex = 0;
-
-    const shuffleContainer = document.getElementById("shuffle-container");
-    const shuffleQuestionText = document.getElementById("shuffle-question-text");
-    const shuffleAnswerOptions = document.getElementById("shuffle-answer-options");
-    const shuffleBackToMenuButton = document.getElementById("shuffle-back-to-menu");
-    const shuffleNextButton = document.getElementById("shuffle-next-button");
-
-
-
-    if (!shuffleBackToMenuButton) {
-        console.log("❌ ERROR: shuffleBackToMenuButton is NULL! Creating a new one...");
-        shuffleBackToMenuButton = document.createElement("button");
-        shuffleBackToMenuButton.innerText = "Back to Menu";
-        shuffleBackToMenuButton.id = "shuffle-back-to-menu";
-        shuffleBackToMenuButton.style.display = "none"; // Hide initially
-        shuffleContainer.appendChild(shuffleBackToMenuButton);
-        console.log("✅ shuffleBackToMenuButton Created & Appended!");
-    } else {
-        console.log("✅ shuffleBackToMenuButton Already Exists!");
-    }
-
-    shuffleButton.addEventListener("click", () => {
-        console.log("🎲 Shuffle button clicked! Switching to shuffle mode...");
-
-        if (!shuffleQuestions || shuffleQuestions.length === 0) {
-            console.error("❌ ERROR: No questions available for shuffle!");
-            shuffleContainer.innerHTML = "<h2>Error: No questions found!</h2>";
-            return;
-        }
-
-        document.getElementById("gridContainer").style.display = "none";
-        document.getElementById("quiz-container").style.display = "none";
-        shuffleContainer.style.display = "block";
-        shuffleCurrentIndex = 0; // Reset index
-
-        console.log("✅ Shuffle Quiz Container is now VISIBLE.");
-        console.log("📌 Showing shuffleBackToMenuButton...");
-
-        shuffleBackToMenuButton.style.display = "block"; // Show Back to Menu button
-        console.log("✅ shuffleBackToMenuButton should now be VISIBLE.");
-
-        displayShuffleQuestion();
-    });
-
-    function displayShuffleQuestion() {
-        if (shuffleCurrentIndex >= shuffleQuestions.length) {
-            shuffleContainer.innerHTML = `<h2>🎉 No more questions! Shuffle complete.</h2>
-                                          <button id="back-to-menu">Back to Menu</button>`;
-            console.log("✅ End of shuffle questions.");
-            document.getElementById("back-to-menu").addEventListener("click", () => {
-                shuffleContainer.style.display = "none";
-                document.getElementById("gridContainer").style.display = "grid";
-                console.log("🔄 Back to Menu button clicked - Returning to main menu.");
-            });
-            return;
-        }
-        let question = shuffleQuestions[shuffleCurrentIndex];
-    
-        console.log(`🔍 DEBUG: Displaying Question ${shuffleCurrentIndex + 1}/${shuffleQuestions.length}`);
-        console.log(`❓ Question: ${question.question}`);
-        console.log(`✅ Correct Answer: ${question.answer}`);
-    
-        shuffleContainer.innerHTML = `
-            <h2>Shuffled Question ${shuffleCurrentIndex + 1} / ${shuffleQuestions.length}</h2>
-            <p>${question.question}</p>
-            <div id="shuffle-answer-options"></div>
-            <button id="shuffle-next-button" style="display: none;">Next</button>
-        `;
-    
-        let answerOptionsDiv = document.getElementById("shuffle-answer-options");
-
-        question.options.forEach(option => {
-            let button = document.createElement("button");
-            button.innerHTML = option;
-            button.classList.add("shuffle-answer-button");
-
-            console.log(`🆕 Creating Answer Button: ${option}`);
-
-            button.addEventListener("click", () => handleShuffleAnswer(button, question.answer));
-            answerOptionsDiv.appendChild(button);
-        });
-
-        document.getElementById("shuffle-next-button").addEventListener("click", () => {
-            shuffleCurrentIndex++;
-            displayShuffleQuestion();
-        });
-    }
-
-    shuffleBackToMenuButton.addEventListener("click", () => {
-        console.log("🔄 Returning to Main Menu from Shuffle Quiz...");
-
-        shuffleContainer.style.display = "none"; // Hide shuffle quiz
-        document.getElementById("gridContainer").style.display = "grid"; // Show main menu
-
-        console.log("✅ Shuffle Quiz Reset & Menu Restored.");
-    });
-    
-    function handleShuffleAnswer(button, correctAnswer) {
-        const selectedOption = decodeHtmlEntities(button.innerText.trim());
-        const decodedCorrectAnswer = decodeHtmlEntities(correctAnswer.trim());
-    
-        console.log(`Selected Answer: ${selectedOption}`);
-        console.log(`Expected Correct Answer: ${decodedCorrectAnswer}`);
-    
-        if (selectedOption === decodedCorrectAnswer) {
-            console.log("🎉 CORRECT ANSWER!");
-            button.style.backgroundColor = "lightgreen";
-        } else {
-            console.log("❌ WRONG ANSWER!");
-            button.style.backgroundColor = "lightcoral";
-        }
-    
-        // Highlight the correct answer
-        let foundCorrect = false;
-        Array.from(document.getElementById("shuffle-answer-options").children).forEach(btn => {
-            if (decodeHtmlEntities(btn.innerText.trim()) === decodedCorrectAnswer) {
-                btn.style.backgroundColor = "lightgreen";
-                foundCorrect = true;
-            }
-        });
-    
-        if (!foundCorrect) {
-            console.error("❌ ERROR: Correct answer was not found among the answer buttons!");
-        }
-    
-        document.getElementById("shuffle-next-button").style.display = "block"; // Show next button
-    }
-    
-    // Helper Function: Decode HTML Entities
-    function decodeHtmlEntities(str) {
-        let txt = document.createElement("textarea");
-        txt.innerHTML = str;
-        return txt.value;
-    }
-
-    // ✅ Select Shuffle Quiz Container
-const gridContainer = document.getElementById("gridContainer");
-
-// ✅ Create Back to Menu Button
-shuffleBackToMenuButton.innerText = "Back to Menu";
-shuffleBackToMenuButton.id = "shuffle-back-to-menu";
-shuffleBackToMenuButton.style.display = "none"; // Hide initially
-
-// ✅ Append the button to the shuffle quiz container
-shuffleContainer.appendChild(shuffleBackToMenuButton);
-
-// ✅ Event Listener: Shuffle Quiz Start
-shuffleButton.addEventListener("click", () => {
-    console.log("🎲 Shuffle Quiz Started!");
-
-    if (!shuffleQuestions || shuffleQuestions.length === 0) {
-        console.error("❌ ERROR: No questions available for shuffle!");
-        shuffleContainer.innerHTML = "<h2>Error: No questions found!</h2>";
-        return;
-    }
-
-    // Hide other elements
-    gridContainer.style.display = "none";
-    shuffleContainer.style.display = "block";
-
-    shuffleBackToMenuButton.style.display = "block"; // Show Back to Menu button
-
-    // Reset shuffle index & display first question
-    shuffleCurrentIndex = 0;
-    displayShuffleQuestion();
-});
-
-// ✅ Back to Menu Button Functionality
-shuffleBackToMenuButton.addEventListener("click", () => {
-    console.log("🔄 Returning to Main Menu from Shuffle Quiz...");
-
-    shuffleContainer.style.display = "none"; // Hide shuffle quiz
-    document.getElementById("gridContainer").style.display = "grid"; // Show main menu
-
-    console.log("✅ Shuffle Quiz Reset & Menu Restored.");
-});
-});
