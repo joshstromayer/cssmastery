@@ -1,14 +1,11 @@
-let cssBasicsQuestions = []; // Declare globally and use this throughout
-let totalQuestions = 0; // Declare globally before usage
+let cssBasicsQuestions = [];
+let totalQuestions = 0;
 
 fetch("questions.json")
   .then(response => response.json())
   .then(data => {
-    cssBasicsQuestions = [...data]; // ✅ Store normal quiz questions
-    shuffleQuestions = [...data]; // ✅ Store shuffle questions
-    console.log("✅ Questions Loaded Successfully!");
-    console.log("🔍 Normal Quiz Questions:", cssBasicsQuestions);
-    console.log("🎲 Shuffle Quiz Questions:", shuffleQuestions);
+    cssBasicsQuestions = [...data];
+    shuffleQuestions = [...data];
   })
   .catch(error => console.error("❌ ERROR: Failed to load questions!", error));
 const cssChapters = [
@@ -537,7 +534,6 @@ function updateNextSectionLink() {
     `;
 }
 
-// ✅ Run these functions on page load (Ensuring they wait for the DOM)
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         markCompletedTopics();
@@ -545,7 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100); // Wait briefly to ensure elements are loaded
 });
 
-// ✅ Attach Completion to Return Button or Completion Popup (Using Event Delegation)
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("next-topic-link")) {
         event.preventDefault();
@@ -564,7 +559,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-// ✅ Track Current Topic (Set When Quiz Starts)
 let currentTopicId = null;
 
 function startQuiz(topicId) {
@@ -639,11 +633,9 @@ function startQuiz(topicId) {
 
 
 
+// shuffle stuff code stuff 
 
 
-
-
-// shuffle stuff code 
 let shuffleQuestions = [];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -655,20 +647,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const shuffleAnswerOptions = document.getElementById("shuffle-answer-options");
     const shuffleBackToMenuButton = document.getElementById("shuffle-back-to-menu");
     const shuffleNextButton = document.getElementById("shuffle-next-button");
-
-
-
-    if (!shuffleBackToMenuButton) {
-        console.log("❌ ERROR: shuffleBackToMenuButton is NULL! Creating a new one...");
-        shuffleBackToMenuButton = document.createElement("button");
-        shuffleBackToMenuButton.innerText = "Back to Menu";
-        shuffleBackToMenuButton.id = "shuffle-back-to-menu";
-        shuffleBackToMenuButton.style.display = "none"; // Hide initially
-        shuffleContainer.appendChild(shuffleBackToMenuButton);
-        console.log("✅ shuffleBackToMenuButton Created & Appended!");
-    } else {
-        console.log("✅ shuffleBackToMenuButton Already Exists!");
-    }
 
     shuffleButton.addEventListener("click", () => {
         console.log("🎲 Shuffle button clicked! Switching to shuffle mode...");
@@ -684,19 +662,27 @@ document.addEventListener("DOMContentLoaded", () => {
         shuffleContainer.style.display = "block";
         shuffleCurrentIndex = 0; // Reset index
 
-        console.log("✅ Shuffle Quiz Container is now VISIBLE.");
-        console.log("📌 Showing shuffleBackToMenuButton...");
-
         shuffleBackToMenuButton.style.display = "block"; // Show Back to Menu button
-        console.log("✅ shuffleBackToMenuButton should now be VISIBLE.");
 
         displayShuffleQuestion();
     });
 
     function displayShuffleQuestion() {
         if (shuffleCurrentIndex >= shuffleQuestions.length) {
-            shuffleContainer.innerHTML = `<h2>🎉 No more questions! Shuffle complete.</h2>
-                                          <button id="back-to-menu">Back to Menu</button>`;
+            document.getElementById("shuffle-question-text").innerText = `Shuffled Question ${shuffleCurrentIndex + 1} / ${shuffleQuestions.length}`;
+            document.getElementById("shuffle-answer-options").innerHTML = ""; // Clear previous answers
+            
+        
+            question.options.forEach(option => {
+                let button = document.createElement("button");
+                button.innerText = option;
+                button.classList.add("shuffle-answer-button");
+                button.addEventListener("click", () => handleShuffleAnswer(button, question.answer));
+                document.getElementById("shuffle-answer-options").appendChild(button);
+            });
+            
+            // Show the next button after an answer is selected
+            document.getElementById("shuffle-next-button").style.display = "none";
             console.log("✅ End of shuffle questions.");
             document.getElementById("back-to-menu").addEventListener("click", () => {
                 shuffleContainer.style.display = "none";
@@ -712,11 +698,20 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`✅ Correct Answer: ${question.answer}`);
     
         shuffleContainer.innerHTML = `
-            <h2>Shuffled Question ${shuffleCurrentIndex + 1} / ${shuffleQuestions.length}</h2>
-            <p>${question.question}</p>
-            <div id="shuffle-answer-options"></div>
-            <button id="shuffle-next-button" style="display: none;">Next</button>
-        `;
+        <h2>Shuffled Question ${shuffleCurrentIndex + 1} / ${shuffleQuestions.length}</h2>
+        <p>${question.question}</p>
+        <div id="shuffle-answer-options"></div>
+        <button id="shuffle-next-button" style="display: none;">Next</button>
+        <button id="shuffle-back-to-menu">Back to Menu</button>
+    `;
+    
+    
+    document.getElementById("shuffle-back-to-menu").addEventListener("click", () => {
+        console.log("🔄 Returning to Main Menu from Shuffle Quiz...");
+        shuffleContainer.style.display = "none"; // Hide shuffle quiz
+        document.getElementById("gridContainer").style.display = "grid"; // Show main menu
+        console.log("✅ Shuffle Quiz Reset & Menu Restored.");
+    });
     
         let answerOptionsDiv = document.getElementById("shuffle-answer-options");
 
@@ -724,8 +719,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let button = document.createElement("button");
             button.innerHTML = option;
             button.classList.add("shuffle-answer-button");
-
-            console.log(`🆕 Creating Answer Button: ${option}`);
 
             button.addEventListener("click", () => handleShuffleAnswer(button, question.answer));
             answerOptionsDiv.appendChild(button);
@@ -738,12 +731,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     shuffleBackToMenuButton.addEventListener("click", () => {
-        console.log("🔄 Returning to Main Menu from Shuffle Quiz...");
 
         shuffleContainer.style.display = "none"; // Hide shuffle quiz
         document.getElementById("gridContainer").style.display = "grid"; // Show main menu
 
-        console.log("✅ Shuffle Quiz Reset & Menu Restored.");
     });
     
     function handleShuffleAnswer(button, correctAnswer) {
@@ -770,10 +761,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     
-        if (!foundCorrect) {
-            console.error("❌ ERROR: Correct answer was not found among the answer buttons!");
-        }
-    
         document.getElementById("shuffle-next-button").style.display = "block"; // Show next button
     }
     
@@ -784,23 +771,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return txt.value;
     }
 
-    // ✅ Select Shuffle Quiz Container
 const gridContainer = document.getElementById("gridContainer");
 
-// ✅ Create Back to Menu Button
 shuffleBackToMenuButton.innerText = "Back to Menu";
 shuffleBackToMenuButton.id = "shuffle-back-to-menu";
-shuffleBackToMenuButton.style.display = "none"; // Hide initially
 
-// ✅ Append the button to the shuffle quiz container
 shuffleContainer.appendChild(shuffleBackToMenuButton);
 
-// ✅ Event Listener: Shuffle Quiz Start
 shuffleButton.addEventListener("click", () => {
-    console.log("🎲 Shuffle Quiz Started!");
 
     if (!shuffleQuestions || shuffleQuestions.length === 0) {
-        console.error("❌ ERROR: No questions available for shuffle!");
         shuffleContainer.innerHTML = "<h2>Error: No questions found!</h2>";
         return;
     }
@@ -818,11 +798,7 @@ shuffleButton.addEventListener("click", () => {
 
 // ✅ Back to Menu Button Functionality
 shuffleBackToMenuButton.addEventListener("click", () => {
-    console.log("🔄 Returning to Main Menu from Shuffle Quiz...");
-
     shuffleContainer.style.display = "none"; // Hide shuffle quiz
     document.getElementById("gridContainer").style.display = "grid"; // Show main menu
-
-    console.log("✅ Shuffle Quiz Reset & Menu Restored.");
 });
 });

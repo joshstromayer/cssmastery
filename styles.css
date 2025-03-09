@@ -321,6 +321,26 @@ button:hover {
     margin: 0 5px 5px 5px;
 }
 
+/* "Next Question" Button */
+#shuffle-next-button {
+    display: none; /* Initially hidden */
+    margin: 0 10px 10px 0;
+    max-width: 30%;
+}
+
+/* "Back to Menu" Button */
+#shuffle-back-to-menu {
+    margin: 0 0 10px 10px;
+    max-width: 30%;
+}
+
+/* "Return to Menu" Button */
+#shuffle-return-to-menu {
+    color: black;
+    display: none; /* Initially hidden */
+    margin: 0 5px 5px 5px;
+}
+
 #progress-bar {
     width: calc(100% - 10px);
     height: 10px;
